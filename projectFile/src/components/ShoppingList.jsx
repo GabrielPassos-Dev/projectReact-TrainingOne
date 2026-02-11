@@ -1,7 +1,7 @@
 
 function ShoppingList(){
     return (
-        <div>
+        <div className="bg-slate-300 rounded-md p-6">
             <div>teste</div>
         </div>
     )

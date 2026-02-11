@@ -22,10 +22,12 @@ function App() {
   ]);
 
   return (
-    <div className=" flex flex-col gap-4">
-      <h1>Lista de Compras</h1>
-      <AddItem />
-      <ShoppingList />
+    <div className="bg-slate-700 w-screen h-screen flex items-center justify-center">
+      <div className=" flex flex-col gap-4 ">
+        <h1>Lista de Compras</h1>
+        <AddItem />
+        <ShoppingList />
+      </div>
     </div>
   );
 }
