@@ -19,14 +19,32 @@ function App() {
       isValue: 15.0,
       isCompleted: false,
     },
+    {
+      id: 3,
+      title: "Feijão",
+      isQuantity: 10,
+      isValue: 15.0,
+      isCompleted: false,
+    },
   ]);
+
+  function addItemToCart(title, isQuantity) {
+    const newShoppingCart = {
+      id: 3,
+      title: title,
+      isQuantity: isQuantity,
+      isValue: 0.0,
+      isCompleted: false,
+    };
+    setShoppingCart([...shoppingCart, newShoppingCart]);
+  }
 
   return (
     <div className="bg-slate-700 w-screen h-screen flex items-center justify-center">
       <div className=" flex flex-col gap-4 ">
         <h1>Lista de Compras</h1>
-        <AddItem />
-        <ShoppingList />
+        <AddItem addItemToCart={addItemToCart} />
+        <ShoppingList shoppingCart={shoppingCart} />
       </div>
     </div>
   );
