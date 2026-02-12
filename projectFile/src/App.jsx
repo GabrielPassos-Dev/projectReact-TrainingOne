@@ -2,49 +2,56 @@ import { useState } from "react";
 import "./App.css";
 import AddItem from "./components/AddItem";
 import ShoppingList from "./components/ShoppingList";
+import { v4 } from "uuid";
+
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([
     {
-      id: 1,
+      id: v4(),
       title: "Maça",
-      isQuantity: 3,
-      isValue: 3.0,
+      quantity: 3,
+      value: 3.0,
       isCompleted: false,
     },
     {
-      id: 2,
+      id: v4(),
       title: "Arroz",
-      isQuantity: 2,
-      isValue: 15.0,
+      quantity: 2,
+      value: 15.0,
       isCompleted: false,
     },
     {
-      id: 3,
+      id: v4(),
       title: "Feijão",
-      isQuantity: 10,
-      isValue: 15.0,
+      quantity: 10,
+      value: 15.0,
       isCompleted: false,
     },
   ]);
 
   function addItemToCart(title, isQuantity) {
     const newShoppingCart = {
-      id: 3,
+      id: v4(),
       title: title,
-      isQuantity: isQuantity,
-      isValue: 0.0,
+      quantity: isQuantity,
+      value: 0.0,
       isCompleted: false,
     };
     setShoppingCart([...shoppingCart, newShoppingCart]);
   }
 
+  function deleteItemToCart(itemId) {
+    const newShoppingCart = shoppingCart.filter((sCart) => sCart.id !== itemId);
+    setShoppingCart(newShoppingCart);
+  }
+
   return (
     <div className="bg-slate-700 w-screen h-screen flex items-center justify-center">
       <div className=" flex flex-col gap-4 ">
-        <h1>Lista de Compras</h1>
+        <h1 className="text-4xl font-semibold text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text font-mono p-3">Lista de Compras</h1>
         <AddItem addItemToCart={addItemToCart} />
-        <ShoppingList shoppingCart={shoppingCart} />
+        <ShoppingList deleteItemToCart={deleteItemToCart} shoppingCart={shoppingCart} />
       </div>
     </div>
   );

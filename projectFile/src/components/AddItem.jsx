@@ -3,7 +3,8 @@ import QuantityInput from "./QuantityInput";
 
 function AddItem({ addItemToCart }) {
   const [title, setTitle] = useState("");
-  //const [isQuantity, setIsQuantity] = useState(1);
+  const [isQuantity, setIsQuantity] = useState(1);
+
   return (
     <div className="bg-slate-300 rounded-md p-6 flex flex-col gap-4">
       <input
@@ -13,10 +14,16 @@ function AddItem({ addItemToCart }) {
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <QuantityInput />
+
+      <QuantityInput onChange={setIsQuantity} />
+
       <button
         onClick={() => {
-          addItemToCart(title, 2);
+          if (!title) {
+            alert("Digite algo!");
+          }
+          addItemToCart(title.trim(), isQuantity);
+          setTitle("");
         }}
         className="
         px-7 py-2.5 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300
