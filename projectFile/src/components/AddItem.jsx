@@ -21,6 +21,7 @@ function AddItem({ addItemToCart }) {
         onClick={() => {
           if (!title) {
             alert("Digite algo!");
+            return
           }
           addItemToCart(title.trim(), isQuantity);
           setTitle("");

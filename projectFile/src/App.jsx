@@ -4,7 +4,6 @@ import AddItem from "./components/AddItem";
 import ShoppingList from "./components/ShoppingList";
 import { v4 } from "uuid";
 
-
 function App() {
   const [shoppingCart, setShoppingCart] = useState([
     {
@@ -29,6 +28,7 @@ function App() {
       isCompleted: false,
     },
   ]);
+  console.log(shoppingCart);
 
   function addItemToCart(title, isQuantity) {
     const newShoppingCart = {
@@ -46,12 +46,26 @@ function App() {
     setShoppingCart(newShoppingCart);
   }
 
+  function updateItemValue(itemId, newValue) {
+    setShoppingCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === itemId ? { ...item, value: newValue } : item,
+      ),
+    );
+  }
+
   return (
     <div className="bg-slate-700 w-screen h-screen flex items-center justify-center">
       <div className=" flex flex-col gap-4 ">
-        <h1 className="text-4xl font-semibold text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text font-mono p-3">Lista de Compras</h1>
+        <h1 className="text-4xl font-semibold text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text font-mono p-3">
+          Lista de Compras
+        </h1>
         <AddItem addItemToCart={addItemToCart} />
-        <ShoppingList deleteItemToCart={deleteItemToCart} shoppingCart={shoppingCart} />
+        <ShoppingList
+          updateItemValue={updateItemValue}
+          deleteItemToCart={deleteItemToCart}
+          shoppingCart={shoppingCart}
+        />
       </div>
     </div>
   );
