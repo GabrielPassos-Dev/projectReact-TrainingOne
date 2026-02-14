@@ -3,6 +3,7 @@ import "./App.css";
 import AddItem from "./components/AddItem";
 import ShoppingList from "./components/ShoppingList";
 import { v4 } from "uuid";
+import FinishShoppingCart from "./components/FinishShoppingCart";
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([
@@ -54,8 +55,12 @@ function App() {
     );
   }
 
+  const total = shoppingCart.reduce((acc, currentItem) => {
+    return acc + currentItem.quantity * currentItem.value;
+  }, 0);
+console.log(total)
   return (
-    <div className="bg-slate-700 w-screen h-screen flex items-center justify-center">
+    <div className="bg-slate-700 w-screen min-h-screen flex items-center justify-center py-20">
       <div className=" flex flex-col gap-4 ">
         <h1 className="text-4xl font-semibold text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text font-mono p-3">
           Lista de Compras
@@ -66,6 +71,7 @@ function App() {
           deleteItemToCart={deleteItemToCart}
           shoppingCart={shoppingCart}
         />
+        <FinishShoppingCart total={total} />
       </div>
     </div>
   );
