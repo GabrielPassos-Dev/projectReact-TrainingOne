@@ -3,7 +3,7 @@ import "./App.css";
 import AddItem from "./components/AddItem";
 import ShoppingList from "./components/ShoppingList";
 import { v4 } from "uuid";
-import FinishShoppingCart from "./components/FinishShoppingCart";
+import ViewCart  from "./components/ViewCart";
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([
@@ -71,7 +71,7 @@ console.log(total)
           deleteItemToCart={deleteItemToCart}
           shoppingCart={shoppingCart}
         />
-        <FinishShoppingCart total={total} />
+        <ViewCart />
       </div>
     </div>
   );
