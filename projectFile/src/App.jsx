@@ -3,7 +3,10 @@ import "./App.css";
 import AddItem from "./components/AddItem";
 import ShoppingList from "./components/ShoppingList";
 import { v4 } from "uuid";
-import ViewCart  from "./components/ViewCart";
+import ViewCart from "./components/ViewCart";
+import { useContext, useEffect } from "react";
+import { MyContext } from "./context/MyContext";
+
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([
@@ -29,7 +32,6 @@ function App() {
       isCompleted: false,
     },
   ]);
-  console.log(shoppingCart);
 
   function addItemToCart(title, isQuantity) {
     const newShoppingCart = {
@@ -55,10 +57,17 @@ function App() {
     );
   }
 
+  const { setValor } = useContext(MyContext);
+
   const total = shoppingCart.reduce((acc, currentItem) => {
     return acc + currentItem.quantity * currentItem.value;
   }, 0);
-console.log(total)
+
+  useEffect(() => {
+  setValor(total);
+}, [total]);
+
+
   return (
     <div className="bg-slate-700 w-screen min-h-screen flex items-center justify-center py-20">
       <div className=" flex flex-col gap-4 ">

@@ -1,7 +1,5 @@
-import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 function FinishShoppingCart({ total }) {
-  const navigate = useNavigate();
 
   function formatReal(value) {
     return new Intl.NumberFormat("pt-BR", {
@@ -9,7 +7,7 @@ function FinishShoppingCart({ total }) {
       currency: "BRL",
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
-    }).format(value);
+    }).format(value ?? 0);
   }
 
   return (
@@ -18,14 +16,14 @@ function FinishShoppingCart({ total }) {
         <div>Total da lista:</div>
         <div className="font-bold ">{formatReal(total)}</div>
       </div>
-      <button
-        onClick={() => navigate(-1)}
+      <Link
+        to="/"
         className="
         px-7 py-2.5 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300
         focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
       >
         Voltar
-      </button>
+      </Link>
     </div>
   );
 }
