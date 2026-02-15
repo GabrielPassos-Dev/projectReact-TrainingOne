@@ -1,7 +1,7 @@
 import { useState } from "react";
 import QuantityInput from "./QuantityInput";
 
-function AddItem({ addItemToCart }) {
+function AddItem({ addItemToList }) {
   const [title, setTitle] = useState("");
   const [isQuantity, setIsQuantity] = useState(1);
 
@@ -23,7 +23,7 @@ function AddItem({ addItemToCart }) {
             alert("Digite algo!");
             return
           }
-          addItemToCart(title.trim(), isQuantity);
+          addItemToList(title.trim(), isQuantity);
           setTitle("");
         }}
         className="

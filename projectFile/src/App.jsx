@@ -7,9 +7,8 @@ import ViewCart from "./components/ViewCart";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./context/MyContext";
 
-
 function App() {
-  const [shoppingCart, setShoppingCart] = useState([
+  const [product, setProduct] = useState([
     {
       id: v4(),
       title: "Maça",
@@ -33,40 +32,46 @@ function App() {
     },
   ]);
 
-  function addItemToCart(title, isQuantity) {
-    const newShoppingCart = {
+ const { setValor, cart, setCart } = useContext(MyContext);
+
+  function addItemToList(title, quantity) {
+    const newList = {
       id: v4(),
       title: title,
-      quantity: isQuantity,
+      quantity: quantity,
       value: 0.0,
       isCompleted: false,
     };
-    setShoppingCart([...shoppingCart, newShoppingCart]);
+    setProduct([...product, newList]);
   }
 
-  function deleteItemToCart(itemId) {
-    const newShoppingCart = shoppingCart.filter((sCart) => sCart.id !== itemId);
-    setShoppingCart(newShoppingCart);
+  function deleteItemToList(itemId) {
+    const newShoppingCart = product.filter((sCart) => sCart.id !== itemId);
+    setProduct(newShoppingCart);
   }
 
   function updateItemValue(itemId, newValue) {
-    setShoppingCart((prevCart) =>
+    setProduct((prevCart) =>
       prevCart.map((item) =>
         item.id === itemId ? { ...item, value: newValue } : item,
       ),
     );
   }
 
-  const { setValor } = useContext(MyContext);
+  function AddItemToCart(item) {
+    setProduct((prev) => prev.filter((p) => p.id !== item.id));
 
-  const total = shoppingCart.reduce((acc, currentItem) => {
+    setCart((prev) => [...prev, item]);
+  }
+  console.log(cart);
+
+  const total = cart.reduce((acc, currentItem) => {
     return acc + currentItem.quantity * currentItem.value;
   }, 0);
 
   useEffect(() => {
-  setValor(total);
-}, [total]);
-
+    setValor(total);
+  }, [total]);
 
   return (
     <div className="bg-slate-700 w-screen min-h-screen flex items-center justify-center py-20">
@@ -74,11 +79,12 @@ function App() {
         <h1 className="text-4xl font-semibold text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text font-mono p-3">
           Lista de Compras
         </h1>
-        <AddItem addItemToCart={addItemToCart} />
+        <AddItem addItemToList={addItemToList} />
         <ShoppingList
           updateItemValue={updateItemValue}
-          deleteItemToCart={deleteItemToCart}
-          shoppingCart={shoppingCart}
+          deleteItemToList={deleteItemToList}
+          product={product}
+          AddItemToCart={AddItemToCart}
         />
         <ViewCart />
       </div>
