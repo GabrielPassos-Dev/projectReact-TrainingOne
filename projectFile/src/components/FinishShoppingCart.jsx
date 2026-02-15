@@ -17,7 +17,7 @@ function FinishShoppingCart({ total, setCart }) {
   }
 
   return (
-    <div className="w-90 bg-white flex flex-col gap-4 items-center justify-center py-5 rounded-md">
+    <div className="sticky bottom-0 w-90 bg-white flex flex-col gap-4 items-center justify-center py-5 rounded-md">
       <div className="w-74 px-2 py-2 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-sm flex flex-row gap-2 items-center justify-center">
         <div>Total do carrinho:</div>
         <div className="font-bold ">{formatReal(total)}</div>
