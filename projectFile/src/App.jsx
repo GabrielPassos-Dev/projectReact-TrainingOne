@@ -8,31 +8,15 @@ import { useContext, useEffect } from "react";
 import { MyContext } from "./context/MyContext";
 
 function App() {
-  const [product, setProduct] = useState([
-    {
-      id: v4(),
-      title: "Maça",
-      quantity: 3,
-      value: 3.0,
-      isCompleted: false,
-    },
-    {
-      id: v4(),
-      title: "Arroz",
-      quantity: 2,
-      value: 15.0,
-      isCompleted: false,
-    },
-    {
-      id: v4(),
-      title: "Feijão",
-      quantity: 10,
-      value: 15.0,
-      isCompleted: false,
-    },
-  ]);
+  const [product, setProduct] = useState(
+    JSON.parse(localStorage.getItem("list")) || [],
+  );
 
- const { setValor, cart, setCart } = useContext(MyContext);
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(product));
+  }, [product]);
+
+  const { setValor, cart, setCart } = useContext(MyContext);
 
   function addItemToList(title, quantity) {
     const newList = {

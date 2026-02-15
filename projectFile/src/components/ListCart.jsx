@@ -10,6 +10,7 @@ function ListCart({ cart }) {
 
   return (
     <>
+    {cart.length > 0 ?
       <ul className="w-90 bg-slate-800 flex flex-col gap-3 items-center justify-center py-5 rounded-md">
         {cart.map((currentItem) => (
           <li className="flex">
@@ -30,7 +31,7 @@ function ListCart({ cart }) {
             </div>
           </li>
         ))}
-      </ul>
+      </ul> : <div className="w-90 bg-slate-800 flex flex-col gap-3 items-center justify-center py-5 rounded-md text-center text-gray-500">Sua compra irá aparecer aqui</div>}
     </>
   );
 }
