@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+
 function FinishShoppingCart({ total, setCart }) {
   function formatReal(value) {
     return new Intl.NumberFormat("pt-BR", {

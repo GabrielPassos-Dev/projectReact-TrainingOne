@@ -14,6 +14,7 @@ function ShoppingCartPage() {
   const total = cart.reduce((acc, currentItem) => {
      return acc + currentItem.quantity * currentItem.value;
    }, 0);
+   
     useEffect(() => {
       setValor(total);
     }, [cart]);
