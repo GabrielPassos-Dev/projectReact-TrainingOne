@@ -7,19 +7,19 @@ function ShoppingList({
   updateItemValue,
   AddItemToCart,
 }) {
+
   return (
     <>
       {product.length > 0 ? (
         <ul className="bg-slate-300 rounded-md p-6 flex flex-col gap-4">
           {product.map((currentItem) => (
-            <li className="flex gap-2">
+            <li  key={currentItem.id} className="flex gap-2">
               <div className="flex flex-row rounded-md">
                 <div className="w-10 px-1 py-2 bg-slate-500 text-gray-900 shadow-sm text-center font-bold rounded-tl-md rounded-bl-md">
                   {currentItem.quantity}
                 </div>
                 <div
-                  className={"[overflow-wrap:anywhere] w-25 px-2 py-2 rounded-tr-md rounded-br-md bg-slate-400 p-1"}
-                  key={currentItem.id}
+                  className={"[overflow-wrap:anywhere] w-24 px-2 py-2 rounded-tr-md rounded-br-md bg-slate-400 p-1"}
                 >
                   {currentItem.title}
                 </div>
@@ -27,7 +27,7 @@ function ShoppingList({
 
               <NumericFormat
                 className="w-20 px-1 py-1.5 bg-white text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                value={currentItem.value || ""}
+                value={currentItem.value ?? ""}
                 inputMode="decimal"
                 thousandSeparator="."
                 decimalSeparator=","

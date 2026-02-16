@@ -25,7 +25,7 @@ function QuantityInput({ value, onChange }) {
       {value > 1 && (
         <button
           onClick={removeQt}
-          className="flex justify-center items-center w-full px-3 py-1 bg-blue-400 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300"
+          className="flex justify-center items-center w-full px-3 py-1 bg-blue-400 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transitio  n-all duration-300"
         >
           <CircleMinus />
         </button>
