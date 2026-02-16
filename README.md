@@ -55,7 +55,8 @@ O protótipo foi utilizado para:
 
 Esse processo ajudou a tornar a implementação mais organizada e próxima de um cenário real de desenvolvimento, onde o design precede o código.
 
-🔗 Protótipo: https://www.figma.com/proto/sxLOBUt6iIAYemd76iIgIY/Lista-de-Compras-Inteligente?node-id=5-298&t=Vx9GjiuZAYOmEXrD-1
+🔗 Protótipo: https://www.figma.com/proto/sxLOBUt6iIAYemd76iIgIY/Lista-de-Compras-Inteligente?node-id=2-5&t=Vx9GjiuZAYOmEXrD-1
+🔗 Projeto: https://www.figma.com/design/sxLOBUt6iIAYemd76iIgIY/Lista-de-Compras-Inteligente?node-id=0-1&t=Vx9GjiuZAYOmEXrD-1
 
 ---
 
