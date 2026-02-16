@@ -3,7 +3,7 @@ import QuantityInput from "./QuantityInput";
 
 function AddItem({ addItemToList }) {
   const [title, setTitle] = useState("");
-  const [isQuantity, setIsQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div className="sticky top-0 bg-slate-300 rounded-md p-6 flex flex-col gap-4">
@@ -15,7 +15,7 @@ function AddItem({ addItemToList }) {
         onChange={(event) => setTitle(event.target.value)}
       />
 
-      <QuantityInput onChange={setIsQuantity} />
+      <QuantityInput value={quantity} onChange={setQuantity} />
 
       <button
         onClick={() => {
@@ -23,7 +23,7 @@ function AddItem({ addItemToList }) {
             alert("Digite algo!");
             return
           }
-          addItemToList(title.trim(), isQuantity);
+          addItemToList(title.trim(), quantity);
           setTitle("");
         }}
         className="

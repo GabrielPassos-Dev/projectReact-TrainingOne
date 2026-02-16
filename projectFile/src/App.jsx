@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import AddItem from "./components/AddItem";
 import ShoppingList from "./components/ShoppingList";
 import { v4 } from "uuid";
@@ -19,14 +18,14 @@ function App() {
   const { cart, setCart } = useContext(MyContext);
 
   function addItemToList(title, quantity) {
-    const newList = {
+    const newProduct = {
       id: v4(),
       title: title,
       quantity: quantity,
       value: 0.0,
       isCompleted: false,
     };
-    setProduct([...product, newList]);
+    setProduct([...product, newProduct]);
   }
 
   function deleteItemToList(itemId) {

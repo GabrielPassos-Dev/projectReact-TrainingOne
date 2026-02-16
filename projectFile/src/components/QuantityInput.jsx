@@ -1,33 +1,28 @@
 import { CircleMinus, CirclePlus } from "lucide-react";
-import { useState } from "react";
 
-function QuantityInput({ onChange }) {
-  const [quantity, setQuantity] = useState(1);
+function QuantityInput({ value, onChange }) {
 
   const addQt = () => {
-    const newValue = quantity + 1;
+    const newValue = value + 1;
     if (newValue > 999) return;
-    setQuantity(newValue);
     onChange?.(newValue);
   };
 
   const removeQt = () => {
-    const newValue = quantity - 1;
+    const newValue = value - 1;
     if (newValue < 1) return;
-    setQuantity(newValue);
     onChange?.(newValue);
   };
 
   const handleChange = (event) => {
     const value = Number(event.target.value);
     if (value < 1 || value > 999) return;
-    setQuantity(value);
     onChange?.(value);
   };
 
   return (
     <div className="flex flex-row gap-4 ">
-      {quantity > 1 && (
+      {value > 1 && (
         <button
           onClick={removeQt}
           className="flex justify-center items-center w-full px-3 py-1 bg-blue-400 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300"
@@ -43,7 +38,7 @@ function QuantityInput({ onChange }) {
         max="999"
         inputMode="numeric"
         pattern="[0-9]*"
-        value={quantity}
+        value={value}
         onChange={handleChange}
       />
 
