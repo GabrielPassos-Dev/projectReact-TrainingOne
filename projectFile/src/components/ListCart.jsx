@@ -17,12 +17,12 @@ function ListCart({ cart, deleteItemToCart}) {
           {cart.map((currentItem) => (
             <li className="flex gap-4">
               <div className="flex">
-                <div className="w-10 py-3 bg-slate-900 text-gray-500 shadow-sm text-center rounded-tl-md rounded-bl-md">
+                <div className="w-10 py-3 bg-slate-900 text-gray-500 shadow-sm text-center rounded-tl-md rounded-bl-md mx-1 ">
                   {currentItem.quantity}
                 </div>
                 <div
                   className={
-                    "w-35 py-3 text-gray-300 bg-slate-900 p-1 text-center"
+                    "[overflow-wrap:anywhere] w-35 py-3 text-gray-300 bg-slate-900 p-1 text-center"
                   }
                   key={currentItem.id}
                 >

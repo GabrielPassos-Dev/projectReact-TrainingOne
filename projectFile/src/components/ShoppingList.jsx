@@ -18,7 +18,7 @@ function ShoppingList({
                   {currentItem.quantity}
                 </div>
                 <div
-                  className={"w-25 px-2 py-2 rounded-tr-md rounded-br-md bg-slate-400 p-1"}
+                  className={"[overflow-wrap:anywhere] w-25 px-2 py-2 rounded-tr-md rounded-br-md bg-slate-400 p-1"}
                   key={currentItem.id}
                 >
                   {currentItem.title}
