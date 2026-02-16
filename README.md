@@ -55,8 +55,8 @@ O protótipo foi utilizado para:
 
 Esse processo ajudou a tornar a implementação mais organizada e próxima de um cenário real de desenvolvimento, onde o design precede o código.
 
-🔗 Protótipo: https://www.figma.com/proto/sxLOBUt6iIAYemd76iIgIY/Lista-de-Compras-Inteligente?node-id=2-5&t=Vx9GjiuZAYOmEXrD-1
-🔗 Projeto: https://www.figma.com/design/sxLOBUt6iIAYemd76iIgIY/Lista-de-Compras-Inteligente?node-id=0-1&t=Vx9GjiuZAYOmEXrD-1
+🔗 Protótipo: https://www.figma.com/proto/sxLOBUt6iIAYemd76iIgIY/Lista-de-Compras-Inteligente?node-id=0-1&t=SixqJYGAatpl7ais-1
+🔗 Projeto: https://www.figma.com/design/sxLOBUt6iIAYemd76iIgIY/Lista-de-Compras-Inteligente?node-id=0-1&t=SixqJYGAatpl7ais-1
 
 ---
 
@@ -98,3 +98,4 @@ Desenvolvido por **Gabriel Passos**
 
 - GitHub: https://github.com/GabrielPassos-Dev 
 - LinkedIn: https://www.linkedin.com/in/gabriel-passos-583039273/
+- Figma: https://www.figma.com/team_invite/redeem/1Qo0H64Zuso7QYQj47TfAj?t=SixqJYGAatpl7ais-21
