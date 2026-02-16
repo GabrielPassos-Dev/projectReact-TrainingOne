@@ -16,7 +16,7 @@ function App() {
     localStorage.setItem("list", JSON.stringify(product));
   }, [product]);
 
-  const { setValor, cart, setCart } = useContext(MyContext);
+  const { cart, setCart } = useContext(MyContext);
 
   function addItemToList(title, quantity) {
     const newList = {
@@ -30,8 +30,8 @@ function App() {
   }
 
   function deleteItemToList(itemId) {
-    const newShoppingCart = product.filter((sCart) => sCart.id !== itemId);
-    setProduct(newShoppingCart);
+    const newList = product.filter((sCart) => sCart.id !== itemId);
+    setProduct(newList);
   }
 
   function updateItemValue(itemId, newValue) {
@@ -48,14 +48,6 @@ function App() {
     setCart((prev) => [...prev, item]);
   }
   console.log(cart);
-
-  const total = cart.reduce((acc, currentItem) => {
-    return acc + currentItem.quantity * currentItem.value;
-  }, 0);
-
-  useEffect(() => {
-    setValor(total);
-  }, [total]);
 
   return (
     <div className="bg-slate-700 max-w-screen min-h-screen flex items-center justify-center py-20">

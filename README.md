@@ -14,7 +14,7 @@ A proposta do sistema é ajudar no controle financeiro, permitindo simular o tot
 - ❌ Remover itens da lista
 - 📋 Visualizar todos os produtos adicionados ao carrinho
 - 🧮 Cálculo automático do total da compra
-- 🧹 Botão para finalizar compra e limpar carrinho
+- 🧹 Botão para finalizar compra e limpar carrinho ou remover item por item
 
 ---
 

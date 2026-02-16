@@ -42,6 +42,7 @@ function QuantityInput({ onChange }) {
         min="1"
         max="999"
         inputMode="numeric"
+        pattern="[0-9]*"
         value={quantity}
         onChange={handleChange}
       />
