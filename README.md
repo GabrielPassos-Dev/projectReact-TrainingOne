@@ -26,6 +26,7 @@ A proposta do sistema é ajudar no controle financeiro, permitindo simular o tot
 - Context API (gerenciamento de estado global)
 - React Router DOM (CreateBrowserRouter / useNavigate)
 - Lucide React (ícones)
+- Figma
 
 ---
 
@@ -38,6 +39,23 @@ Este projeto foi desenvolvido com foco em prática de desenvolvimento front-end 
 - Construção de interfaces responsivas com Tailwind
 - Manipulação de dados e cálculos em tempo real
 - Simulação de um cenário real de controle de gastos
+
+---
+
+## 🎨 Prototipagem e Design
+
+Antes do desenvolvimento, a interface do sistema foi planejada no Figma, com foco em usabilidade e organização das informações.
+
+O protótipo foi utilizado para:
+
+- Definir estrutura das telas
+- Planejar fluxo de navegação
+- Validar disposição dos elementos
+- Pensar na experiência do usuário antes da codificação
+
+Esse processo ajudou a tornar a implementação mais organizada e próxima de um cenário real de desenvolvimento, onde o design precede o código.
+
+🔗 Protótipo: https://www.figma.com/proto/sxLOBUt6iIAYemd76iIgIY/Lista-de-Compras-Inteligente?node-id=5-298&t=Vx9GjiuZAYOmEXrD-1
 
 ---
 
