@@ -20,7 +20,7 @@ function ShoppingList({
                 </div>
                 <div
                   className={
-                    "[overflow-wrap:anywhere] w-24 px-2 py-2 rounded-tr-md rounded-br-md bg-slate-400 p-1"
+                    "overflow-wrap:anywhere w-24 px-2 py-2 rounded-tr-md rounded-br-md bg-slate-400 p-1"
                   }
                 >
                   {currentItem.title}
