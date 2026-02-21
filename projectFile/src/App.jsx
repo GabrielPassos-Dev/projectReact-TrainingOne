@@ -1,19 +1,13 @@
-import { useState } from "react";
 import AddItem from "./components/AddItem";
 import ShoppingList from "./components/ShoppingList";
 import { v4 } from "uuid";
 import ViewCart from "./components/ViewCart";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { MyContext } from "./context/MyContext";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
-  const [product, setProduct] = useState(
-    JSON.parse(localStorage.getItem("list")) || [],
-  );
-
-  useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(product));
-  }, [product]);
+  const [product, setProduct] = useLocalStorage("list", []);
 
   const { cart, setCart } = useContext(MyContext);
 
