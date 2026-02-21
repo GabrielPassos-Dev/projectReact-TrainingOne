@@ -1,22 +1,22 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/buttons/Button";
 
-function FinishShoppingCart({ total, setCart }) {
-  function formatReal(value) {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value ?? 0);
-  }
+function formatReal(value) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value ?? 0);
+}
 
+function FinishShoppingCart({ total, setCart }) {
   const navigate = useNavigate();
 
-  function finish() {
+  const finish = () => {
     setCart([]);
     navigate("/");
-  }
+  };
 
   return (
     <div className="sticky bottom-0 w-90 bg-white flex flex-col gap-4 items-center justify-center py-5 rounded-md">
@@ -26,19 +26,11 @@ function FinishShoppingCart({ total, setCart }) {
       </div>
 
       <div className="flex gap-4">
-        <Button
-          to="/"
-          variant="ghost"
-          size="md"
-        >
+        <Button to="/" variant="ghost" size="md">
           Voltar
         </Button>
 
-        <Button
-          onClick={() => finish()}
-          variant="primary"
-          size="md"
-        >
+        <Button onClick={finish} variant="primary" size="md">
           Finalizar Compra
         </Button>
       </div>

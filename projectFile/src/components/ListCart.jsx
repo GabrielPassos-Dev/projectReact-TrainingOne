@@ -1,15 +1,16 @@
 import { Trash2 } from "lucide-react";
 import { Button } from "./ui/buttons/Button";
 
+function formatReal(value) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value ?? 0);
+}
+
 function ListCart({ cart, removeItem }) {
-  function formatReal(value) {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value ?? 0);
-  }
 
   return (
     <>
@@ -23,7 +24,7 @@ function ListCart({ cart, removeItem }) {
                 </div>
                 <div
                   className={
-                    "[overflow-wrap:anywhere] w-35 py-3 text-gray-300 bg-slate-900 p-1 text-center"
+                    "overflow-wrap:anywhere w-35 py-3 text-gray-300 bg-slate-900 p-1 text-center"
                   }
                 >
                   {currentItem.title}
