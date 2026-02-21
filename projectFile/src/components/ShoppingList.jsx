@@ -3,16 +3,16 @@ import { NumericFormat } from "react-number-format";
 import { Button } from "./ui/buttons/Button";
 
 function ShoppingList({
-  product,
-  deleteItemToList,
-  updateItemValue,
-  AddItemToCart,
+  list,
+  removeItem,
+  updateValue,
+  moveToCart,
 }) {
   return (
     <>
-      {product.length > 0 ? (
+      {list.length > 0 ? (
         <ul className="bg-slate-300 rounded-md p-6 flex flex-col gap-4">
-          {product.map((currentItem) => (
+          {list.map((currentItem) => (
             <li key={currentItem.id} className="flex gap-2">
               <div className="flex flex-row rounded-md">
                 <div className="w-10 px-1 py-2 bg-slate-500 text-gray-900 shadow-sm text-center font-bold rounded-tl-md rounded-bl-md">
@@ -39,14 +39,14 @@ function ShoppingList({
                 allowNegative={false}
                 placeholder="R$ 0,00"
                 onValueChange={(values) => {
-                  updateItemValue(currentItem.id, values.floatValue || 0);
+                  updateValue(currentItem.id, values.floatValue || 0);
                 }}
               />
 
               <Button
                 onClick={
                   currentItem.value
-                    ? () => AddItemToCart(currentItem)
+                    ? () => moveToCart(currentItem)
                     : () =>
                         alert(
                           `Digite o preço do(a) ${currentItem.title} para prosseguir!`,
@@ -56,10 +56,10 @@ function ShoppingList({
                 size="sm"
               >
                 <ShoppingCart />
-                </Button>
+              </Button>
 
               <Button
-                onClick={() => deleteItemToList(currentItem.id)}
+                onClick={() => removeItem(currentItem.id)}
                 variant="danger"
                 size="sm"
               >

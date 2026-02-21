@@ -2,7 +2,7 @@ import { useState } from "react";
 import QuantityInput from "./QuantityInput";
 import { Button } from "./ui/buttons/Button";
 
-function AddItem({ addItemToList }) {
+function AddItem({ addItem }) {
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -24,7 +24,7 @@ function AddItem({ addItemToList }) {
             alert("Digite algo!");
             return
           }
-          addItemToList(title.trim(), quantity);
+          addItem(title.trim(), quantity);
           setTitle("");
         }}
       >
