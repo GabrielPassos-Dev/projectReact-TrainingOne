@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "./ui/buttons/Button";
 
 function FinishShoppingCart({ total, setCart }) {
   function formatReal(value) {
@@ -23,23 +24,23 @@ function FinishShoppingCart({ total, setCart }) {
         <div>Total do carrinho:</div>
         <div className="font-bold ">{formatReal(total)}</div>
       </div>
+
       <div className="flex gap-4">
-        <Link
+        <Button
           to="/"
-          className=" w-25 text-center
-          px-7 py-2.5 bg-white text-blue-600 border-2 border-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-800 hover:shadow-l hover:text-white transition-all duration-300
-          focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 flex items-center justify-center"
+          variant="ghost"
+          size="md"
         >
           Voltar
-        </Link>
-        <button
+        </Button>
+
+        <Button
           onClick={() => finish()}
-          className=" w-45 text-center
-          px-7 py-2.5 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300
-          focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 cursor-pointer flex items-center justify-center"
+          variant="primary"
+          size="md"
         >
           Finalizar Compra
-        </button>
+        </Button>
       </div>
     </div>
   );

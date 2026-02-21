@@ -1,7 +1,7 @@
 import { CircleMinus, CirclePlus } from "lucide-react";
+import { Button } from "./ui/buttons/Button";
 
 function QuantityInput({ value, onChange }) {
-
   const addQt = () => {
     const newValue = value + 1;
     if (newValue > 999) return;
@@ -23,12 +23,9 @@ function QuantityInput({ value, onChange }) {
   return (
     <div className="flex flex-row gap-4 ">
       {value > 1 && (
-        <button
-          onClick={removeQt}
-          className="flex justify-center items-center w-full px-3 py-1 bg-blue-400 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transitio  n-all duration-300"
-        >
+        <Button onClick={removeQt} variant="light" size="md" type="button" aria-label="Aumentar quantidade">
           <CircleMinus />
-        </button>
+        </Button>
       )}
 
       <input
@@ -42,14 +39,9 @@ function QuantityInput({ value, onChange }) {
         onChange={handleChange}
       />
 
-      <button
-        onClick={addQt}
-        className="flex justify-center items-center w-full px-3 py-1 bg-blue-400 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300"
-        type="button"
-        value="+"
-      >
+      <Button onClick={addQt} variant="light" size="md" type="button" aria-label="Diminuir quantidade">
         <CirclePlus />
-      </button>
+      </Button>
     </div>
   );
 }

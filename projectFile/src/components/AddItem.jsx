@@ -1,5 +1,6 @@
 import { useState } from "react";
 import QuantityInput from "./QuantityInput";
+import { Button } from "./ui/buttons/Button";
 
 function AddItem({ addItemToList }) {
   const [title, setTitle] = useState("");
@@ -17,7 +18,7 @@ function AddItem({ addItemToList }) {
 
       <QuantityInput value={quantity} onChange={setQuantity} />
 
-      <button
+      <Button
         onClick={() => {
           if (!title) {
             alert("Digite algo!");
@@ -26,12 +27,9 @@ function AddItem({ addItemToList }) {
           addItemToList(title.trim(), quantity);
           setTitle("");
         }}
-        className="
-        px-7 py-2.5 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300
-        focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 cursor-pointer"
       >
         Adicionar na Lista
-      </button>
+      </Button>
     </div>
   );
 }

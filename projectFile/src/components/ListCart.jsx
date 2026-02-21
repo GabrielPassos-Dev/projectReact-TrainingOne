@@ -1,4 +1,5 @@
 import { Trash2 } from "lucide-react";
+import { Button } from "./ui/buttons/Button";
 
 function ListCart({ cart, deleteItemToCart }) {
   function formatReal(value) {
@@ -15,7 +16,7 @@ function ListCart({ cart, deleteItemToCart }) {
       {cart.length > 0 ? (
         <ul className="w-90 bg-slate-800 flex flex-col gap-3 items-center justify-center py-5 rounded-md">
           {cart.map((currentItem) => (
-            <li key={currentItem.id} className="flex gap-4">
+            <li key={currentItem.id} className="flex gap-2  ">
               <div className="flex">
                 <div className="w-10 py-3 bg-slate-900 text-gray-500 shadow-sm text-center rounded-tl-md rounded-bl-md mx-1 ">
                   {currentItem.quantity}
@@ -33,13 +34,15 @@ function ListCart({ cart, deleteItemToCart }) {
                   </div>
                 </div>
               </div>
-              <div>
-                <button
+              <div className=" flex items-center justify-center">
+                <Button
                   onClick={() => deleteItemToCart(currentItem.id)}
-                  className="py-3 btext-white font-semibold text-gray-300 cursor-pointer"
+                  variant="danger"
+                  size="sm"
+                  className="py-2 bg-transparent text-gray-300"
                 >
                   <Trash2 />
-                </button>
+                </Button>
               </div>
             </li>
           ))}

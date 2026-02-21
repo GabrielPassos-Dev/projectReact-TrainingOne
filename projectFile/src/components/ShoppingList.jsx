@@ -1,5 +1,6 @@
 import { Trash2, ShoppingCart } from "lucide-react";
 import { NumericFormat } from "react-number-format";
+import { Button } from "./ui/buttons/Button";
 
 function ShoppingList({
   product,
@@ -7,19 +8,20 @@ function ShoppingList({
   updateItemValue,
   AddItemToCart,
 }) {
-
   return (
     <>
       {product.length > 0 ? (
         <ul className="bg-slate-300 rounded-md p-6 flex flex-col gap-4">
           {product.map((currentItem) => (
-            <li  key={currentItem.id} className="flex gap-2">
+            <li key={currentItem.id} className="flex gap-2">
               <div className="flex flex-row rounded-md">
                 <div className="w-10 px-1 py-2 bg-slate-500 text-gray-900 shadow-sm text-center font-bold rounded-tl-md rounded-bl-md">
                   {currentItem.quantity}
                 </div>
                 <div
-                  className={"[overflow-wrap:anywhere] w-24 px-2 py-2 rounded-tr-md rounded-br-md bg-slate-400 p-1"}
+                  className={
+                    "[overflow-wrap:anywhere] w-24 px-2 py-2 rounded-tr-md rounded-br-md bg-slate-400 p-1"
+                  }
                 >
                   {currentItem.title}
                 </div>
@@ -41,7 +43,7 @@ function ShoppingList({
                 }}
               />
 
-              <button
+              <Button
                 onClick={
                   currentItem.value
                     ? () => AddItemToCart(currentItem)
@@ -50,17 +52,19 @@ function ShoppingList({
                           `Digite o preço do(a) ${currentItem.title} para prosseguir!`,
                         )
                 }
-                className=" px-2 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all  duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                variant="primary"
+                size="sm"
               >
                 <ShoppingCart />
-              </button>
+                </Button>
 
-              <button
+              <Button
                 onClick={() => deleteItemToList(currentItem.id)}
-                className="px-2 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+                variant="danger"
+                size="sm"
               >
                 <Trash2 />
-              </button>
+              </Button>
             </li>
           ))}
         </ul>
