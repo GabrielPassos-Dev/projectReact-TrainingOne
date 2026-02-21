@@ -1,7 +1,7 @@
 import { Trash2 } from "lucide-react";
 import { Button } from "./ui/buttons/Button";
 
-function ListCart({ cart, deleteItemToCart }) {
+function ListCart({ cart, removeItem }) {
   function formatReal(value) {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -36,7 +36,7 @@ function ListCart({ cart, deleteItemToCart }) {
               </div>
               <div className=" flex items-center justify-center">
                 <Button
-                  onClick={() => deleteItemToCart(currentItem.id)}
+                  onClick={() => removeItem(currentItem.id)}
                   variant="danger"
                   size="sm"
                   className="py-2 bg-transparent text-gray-300"
